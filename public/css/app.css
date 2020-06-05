@@ -42151,3 +42151,17 @@ a.text-dark:focus {
   }
 }
 
+.red {
+  color: red;
+}
+
+.router-link-exact-active {
+  background-color: #007bff;
+  color: #fff !important;
+}
+
+.router-link-active {
+  background-color: #007bff;
+  color: #fff !important;
+}
+
