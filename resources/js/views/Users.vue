@@ -6,7 +6,7 @@
         <div class="box mt-4 ml-2">
             <div class="box-header d-flex justify-content-between mb-3">
                 <h3 class="box-title">All Users</h3>
-                <button class="btn btn-success" data-toggle="modal" data-target="#createuser">Create User <i class="fa fa-plus"></i></button>
+                <button class="btn btn-success" @click="newUserModal">Create User <i class="fa fa-plus"></i></button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -27,8 +27,8 @@
                     <td>{{ user.created_at | date }}</td>
                     <td>{{user.type }}</td>
                     <td>
-                        <a href="">Edit <i class="fa fa-edit mr-2"></i></a>
-                        <a href="" class="red">Delete <i class="fa fa-trash"></i></a>
+                        <a href="#" @click="editUserModal(user)">Edit <i class="fa fa-edit mr-2"></i></a>
+                        <a href="#" @click="deleteUser(user.id)" class="red">Delete <i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 </tbody>
@@ -45,12 +45,12 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Create User</h5>
+                        <h5 class="modal-title">{{ mode }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form @submit.prevent="addUser" @keydown="form.onKeydown($event)">
+                    <form @submit.prevent="mode == 'Create User' ? addUser(): updateUser()" @keydown="form.onKeydown($event)">
                     <div class="modal-body">
                             <div class="form-group">
                                 <input v-model="form.name" type="text" name="name"
@@ -87,7 +87,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button :disabled="form.busy" type="submit" class="btn btn-primary">Save user</button>
+                        <button :disabled="form.busy" type="submit" class="btn btn-primary">{{ mode }}</button>
                     </div>
                     </form>
 
@@ -108,6 +108,7 @@ export default {
     data () {
         return {
             form: new Form({
+                id: '',
                 name: '',
                 password: '',
                 email: '',
@@ -116,26 +117,95 @@ export default {
                 photo: '',
             }),
             users: {},
+            mode: ''
         }
     },
     mounted() {
         this.loadUsers()
     },
     methods: {
-        addUser() {
-            this.form.post('/api/users')
-                .then(({data}) => {
-                    $('#createuser').modal('hide')
-                    this.users.push(data)
-                })
-        },
         loadUsers() {
             axios.get('api/users')
                 .then((response) => {
                     this.users = response.data.data
                 }).catch((err) => {
-                    console.log(err)
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Cannot Fetch Users'
+                    })
                 })
+        },
+        addUser() {
+            this.form.post('/api/users')
+                .then(({data}) => {
+                    $('#createuser').modal('hide')
+                    this.loadUsers()
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Created Successfully!'
+                    })
+                }).catch((error) => {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Something went wrong'
+                    })
+                })
+        },
+        updateUser() {
+            this.form.put('api/users/' + this.form.id)
+                .then(() => {
+                    $('#createuser').modal('hide')
+                    this.loadUsers()
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Updated Successfully!'
+                    })
+                }).catch(() => {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Something went wrong'
+                    })
+                })
+        },
+        deleteUser(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.value) {
+                    this.form.delete('api/users/' + id)
+                        .then(() => {
+                            this.loadUsers()
+                            Swal.fire(
+                                'Deleted!',
+                                'User Deleted Successfully!',
+                                'success'
+                            )
+                        }).catch(() => {
+                            Swal.fire(
+                                'Something went wrong',
+                                'Try again later',
+                                'error'
+                            )
+                        })
+                    
+                }
+            })
+        },
+        newUserModal() {
+            this.mode = "Create User"
+            this.form.reset()
+            $('#createuser').modal('show')
+        },
+        editUserModal(user) {
+            this.mode = "Update User"
+            this.form.fill(user)
+            $('#createuser').modal('show')
         }
     }
 }
