@@ -98,8 +98,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', \Illuminate\Validation\Rule::unique('users')->ignore($user->id)],
             'password' => ['sometimes', 'min:8'],
-        ]);
-        $user->removeRole($user->type);   
+        ]); 
             
         $this->setType($user, $request->type);
         
@@ -125,15 +124,15 @@ class UserController extends Controller
         switch ($type) {
             case 'admin':
                 $role = Role::where('name', 'super-admin')->first();
-                $user->assignRole($role);
+                $user->syncRole($role);
                 break;
             case 'writer':
                 $role = Role::where('name', 'writer')->first();
-                $user->assignRole($role);
+                $user->syncRole($role);
                 break;
             default:
                 $role = Role::where('name', 'user')->first();
-                $user->assignRole($role);
+                $user->syncRole($role);
                 break;
         }
     }
