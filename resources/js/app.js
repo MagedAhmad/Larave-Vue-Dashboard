@@ -4,14 +4,20 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+ 
 require('./bootstrap');
 require('admin-lte');
 window.Vue = require('vue');
+
 import { Form, HasError, AlertError } from 'vform'
 import Swal from 'sweetalert2'
 import moment from 'moment'
 
 window.Swal = Swal
+
+window.axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest',
+};
 
 const Toast = Swal.mixin({
     toast: true,

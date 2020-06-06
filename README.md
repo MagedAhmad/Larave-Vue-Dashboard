@@ -2,10 +2,12 @@
 
 Project is build to ease the steps you take to initialize your new project without adding too much functionality that you don't even know what's going behind the scenes. it's meant to be simple-efficient and cover all you need to start off fast ..
 
-## Key Features
+## Key Features & included packages
 
 - Adminlte as your dashboard theme.
 - Vue Router.
+- Apis & laravel Passport.
+- VForm + Sweet alert 
 - Control Users (CRUD).
 
 ## installation 
