@@ -80,7 +80,7 @@
                                     <option value="">Choose Type</option>        
                                     <option value="user">User</option>        
                                     <option value="admin">Admin</option>        
-                                    <option value="author">Author</option>        
+                                    <option value="writer">Writer</option>        
                                 </select>
                                 <has-error :form="form" field="type"></has-error>
                             </div>
@@ -125,7 +125,7 @@ export default {
     },
     methods: {
         loadUsers() {
-            axios.get('api/users')
+            axios.get('api/admin/users')
                 .then((response) => {
                     this.users = response.data.data
                 }).catch((err) => {
@@ -136,7 +136,7 @@ export default {
                 })
         },
         addUser() {
-            this.form.post('/api/users')
+            this.form.post('/api/admin/users')
                 .then(({data}) => {
                     $('#createuser').modal('hide')
                     this.loadUsers()
@@ -152,7 +152,7 @@ export default {
                 })
         },
         updateUser() {
-            this.form.put('api/users/' + this.form.id)
+            this.form.put('api/admin/users/' + this.form.id)
                 .then(() => {
                     $('#createuser').modal('hide')
                     this.loadUsers()
@@ -178,7 +178,7 @@ export default {
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                 if (result.value) {
-                    this.form.delete('api/users/' + id)
+                    this.form.delete('api/admin/users/' + id)
                         .then(() => {
                             this.loadUsers()
                             Swal.fire(

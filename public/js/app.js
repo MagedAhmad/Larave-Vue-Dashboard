@@ -2108,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
     loadUsers: function loadUsers() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/users').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/admin/users').then(function (response) {
         _this.users = response.data.data;
       })["catch"](function (err) {
         Toast.fire({
@@ -2120,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
     addUser: function addUser() {
       var _this2 = this;
 
-      this.form.post('/api/users').then(function (_ref) {
+      this.form.post('/api/admin/users').then(function (_ref) {
         var data = _ref.data;
         $('#createuser').modal('hide');
 
@@ -2140,7 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
     updateUser: function updateUser() {
       var _this3 = this;
 
-      this.form.put('api/users/' + this.form.id).then(function () {
+      this.form.put('api/admin/users/' + this.form.id).then(function () {
         $('#createuser').modal('hide');
 
         _this3.loadUsers();
@@ -2169,7 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          _this4.form["delete"]('api/users/' + id).then(function () {
+          _this4.form["delete"]('api/admin/users/' + id).then(function () {
             _this4.loadUsers();
 
             Swal.fire('Deleted!', 'User Deleted Successfully!', 'success');
@@ -63407,8 +63407,8 @@ var render = function() {
                                 _vm._v("Admin")
                               ]),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "author" } }, [
-                                _vm._v("Author")
+                              _c("option", { attrs: { value: "writer" } }, [
+                                _vm._v("Writer")
                               ])
                             ]
                           ),
