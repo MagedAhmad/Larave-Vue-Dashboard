@@ -86,9 +86,25 @@
 
                 @auth
                 <div class="links">
+                @if(auth()->user()->hasRole('super-admin') OR auth()->user()->hasRole('writer'))
                     <a href="/admin">Admin</a>
+                    
+                @else(auth()->check())
+                    <a href="{{ route('logout') }}" class="nav-link"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        <i class="nav-icon fa fa-power-off"></i>
+                        <p>
+                        {{ __('Logout') }}
+                        </p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endif
                 </div>
                 @endauth
+
             </div>
         </div>
     </body>
