@@ -43,6 +43,7 @@
               </p>
             </router-link>
           </li>
+          @if(auth()->user()->hasRole('super-admin'))
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -60,6 +61,12 @@
               </li>
             </ul>
           </li>
+          @endif
+          
+          <!-- @can('control content') -->
+          <!-- Use this for writer user -->
+          <!-- @endcan -->
+
           <li class="nav-item">
             <router-link :to="'/profile'" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -69,7 +76,6 @@
               </p>
             </router-link>
           </li>
-
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link"
               onclick="event.preventDefault();

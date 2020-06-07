@@ -1,4 +1,5 @@
 # Laravel admin Dashboard
+[![Build Status](https://travis-ci.org/MagedAhmad/Larave-dashboard.svg?branch=master)](https://travis-ci.org/MagedAhmad/Larave-dashboard)
 
 Project is build to ease the steps you take to initialize your new project without adding too much functionality that you don't even know what's going behind the scenes. it's meant to be simple-efficient and cover all you need to start off fast ..
 
@@ -7,7 +8,8 @@ Project is build to ease the steps you take to initialize your new project witho
 - Adminlte as your dashboard theme.
 - Vue Router.
 - Apis & laravel Passport.
-- VForm + Sweet alert 
+- VForm + Sweet alert.
+- User Roles/Permissions.
 - Control Users (CRUD).
 
 ## installation 

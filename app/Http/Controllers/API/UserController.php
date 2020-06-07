@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -46,8 +47,8 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required'],
         ]);
-    
-        return User::create([
+        
+        $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'photo' => $request['photo'],
@@ -55,6 +56,10 @@ class UserController extends Controller
             'type' => $request['type'],
             'password' => Hash::make($request['password']),
         ]);
+
+        $this->setType($user, $user->type);
+        
+        return $user;
     }
 
     /**
@@ -93,8 +98,10 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', \Illuminate\Validation\Rule::unique('users')->ignore($user->id)],
             'password' => ['sometimes', 'min:8'],
-        ]);
-
+        ]); 
+            
+        $this->setType($user, $request->type);
+        
         $user->update($request->all());
     }
 
@@ -107,7 +114,26 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        $user->removeRole($user->type);   
         
         $user->delete();
+    }
+
+
+    public function setType($user, $type) {        
+        switch ($type) {
+            case 'admin':
+                $role = Role::where('name', 'super-admin')->first();
+                $user->syncRole($role);
+                break;
+            case 'writer':
+                $role = Role::where('name', 'writer')->first();
+                $user->syncRole($role);
+                break;
+            default:
+                $role = Role::where('name', 'user')->first();
+                $user->syncRole($role);
+                break;
+        }
     }
 }
