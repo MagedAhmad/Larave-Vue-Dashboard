@@ -125,7 +125,7 @@ export default {
     },
     methods: {
         loadUsers() {
-            axios.get('api/admin/users')
+            axios.get('/api/admin/users')
                 .then((response) => {
                     this.users = response.data.data
                 }).catch((err) => {
@@ -152,7 +152,7 @@ export default {
                 })
         },
         updateUser() {
-            this.form.put('api/admin/users/' + this.form.id)
+            this.form.put('/api/admin/users/' + this.form.id)
                 .then(() => {
                     $('#createuser').modal('hide')
                     this.loadUsers()
@@ -178,7 +178,7 @@ export default {
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                 if (result.value) {
-                    this.form.delete('api/admin/users/' + id)
+                    this.form.delete('/api/admin/users/' + id)
                         .then(() => {
                             this.loadUsers()
                             Swal.fire(

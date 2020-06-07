@@ -36,7 +36,7 @@
           
           
           <li class="nav-item">
-            <router-link :to="'/dashboard'" class="nav-link">
+            <router-link :to="'/admin/'" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Home
@@ -48,15 +48,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                User Mangement
+                Mangement
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/users" class="nav-link">
+                <router-link to="/admin/users" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
-                  <p>All users</p>
+                  <p>User Management</p>
                 </router-link>
               </li>
             </ul>
@@ -68,10 +68,10 @@
           <!-- @endcan -->
 
           <li class="nav-item">
-            <router-link :to="'/profile'" class="nav-link">
+            <router-link :to="'/admin/profile'" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Profile
+                User Profile
                 <span class="right badge badge-danger">New</span>
               </p>
             </router-link>

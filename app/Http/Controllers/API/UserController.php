@@ -124,15 +124,15 @@ class UserController extends Controller
         switch ($type) {
             case 'admin':
                 $role = Role::where('name', 'super-admin')->first();
-                $user->syncRole($role);
+                $user->syncRoles([$role]);
                 break;
             case 'writer':
                 $role = Role::where('name', 'writer')->first();
-                $user->syncRole($role);
+                $user->syncRoles([$role]);
                 break;
             default:
                 $role = Role::where('name', 'user')->first();
-                $user->syncRole($role);
+                $user->syncRoles([$role]);
                 break;
         }
     }

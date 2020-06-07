@@ -2108,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
     loadUsers: function loadUsers() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/admin/users').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/admin/users').then(function (response) {
         _this.users = response.data.data;
       })["catch"](function (err) {
         Toast.fire({
@@ -2140,7 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
     updateUser: function updateUser() {
       var _this3 = this;
 
-      this.form.put('api/admin/users/' + this.form.id).then(function () {
+      this.form.put('/api/admin/users/' + this.form.id).then(function () {
         $('#createuser').modal('hide');
 
         _this3.loadUsers();
@@ -2169,7 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.value) {
-          _this4.form["delete"]('api/admin/users/' + id).then(function () {
+          _this4.form["delete"]('/api/admin/users/' + id).then(function () {
             _this4.loadUsers();
 
             Swal.fire('Deleted!', 'User Deleted Successfully!', 'success');
@@ -78729,13 +78729,13 @@ window.Form = vform__WEBPACK_IMPORTED_MODULE_0__["Form"];
 
 vue__WEBPACK_IMPORTED_MODULE_3___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var routes = [{
-  path: '/dashboard',
+  path: '/admin',
   component: __webpack_require__(/*! ./views/Dashboard.vue */ "./resources/js/views/Dashboard.vue")["default"]
 }, {
-  path: '/profile',
+  path: '/admin/profile',
   component: __webpack_require__(/*! ./views/Profile.vue */ "./resources/js/views/Profile.vue")["default"]
 }, {
-  path: '/users',
+  path: '/admin/users',
   component: __webpack_require__(/*! ./views/Users.vue */ "./resources/js/views/Users.vue")["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__["default"]({
