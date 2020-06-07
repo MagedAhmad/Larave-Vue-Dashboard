@@ -1,5 +1,5 @@
-# Laravel admin Dashboard
-[![Build Status](https://travis-ci.org/MagedAhmad/Larave-dashboard.svg?branch=master)](https://travis-ci.org/MagedAhmad/Larave-dashboard)
+# Laravel Vue admin Dashboard
+[![Build Status](https://travis-ci.org/MagedAhmad/Larave-Vue-Dashboard.svg?branch=master)](https://travis-ci.org/MagedAhmad/Larave-Vue-Dashboard)
 
 Project is build to ease the steps you take to initialize your new project without adding too much functionality that you don't even know what's going behind the scenes. it's meant to be simple-efficient and cover all you need to start off fast ..
 
