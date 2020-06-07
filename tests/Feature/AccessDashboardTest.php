@@ -34,8 +34,8 @@ class AccessDashboardTest extends TestCase
     /** @test */
     public function user_must_login_to_access_to_admin_dashboard()
     {
-        $this->get('/dashboard')
-             ->assertRedirect('login');
+        $this->get('/admin')
+             ->assertRedirect(route('admin.login'));
     }
 
     /** @test */

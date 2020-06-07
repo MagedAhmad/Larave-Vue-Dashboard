@@ -13,7 +13,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('showLogin');
     }
 
     /**
@@ -27,5 +27,11 @@ class AdminController extends Controller
             return \App::abort(403, 'Unauthorized Area!');
         }
         return view('home');
+    }
+
+
+    public function showLogin()
+    {
+        return view('admin.login');
     }
 }
