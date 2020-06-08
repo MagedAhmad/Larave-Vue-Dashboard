@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index');
+
+// Route::get('/admin', 'AdminController@index');
 Route::get('/admin/login', 'AdminController@showLogin')->name('admin.login');
-// Route::get('/{path}', 'AdminController@index');
+Route::get('/admin/{path?}', 'AdminController@index'); // admin view routes

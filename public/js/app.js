@@ -1944,6 +1944,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1960,9 +1962,388 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      user: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/admin/getAuthUser').then(function (response) {
+      _this.user = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -62999,25 +63380,782 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "card card-primary card-outline" }, [
+              _c("div", { staticClass: "card-body box-profile" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("h3", { staticClass: "profile-username text-center" }, [
+                  _vm._v(_vm._s(_vm.user.name))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted text-center" }, [
+                  _vm._v(_vm._s(_vm.user.bio))
+                ]),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(4)
+          ]),
+          _vm._v(" "),
+          _vm._m(5)
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
+    return _c("section", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [_vm._v("Profile")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "breadcrumb-item active" }, [
+                _vm._v("User Profile")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("img", {
+        staticClass: "profile-user-img img-fluid img-circle",
+        attrs: { src: "/img/user4-128x128.jpg", alt: "User profile picture" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "list-group list-group-unbordered mb-3" }, [
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("b", [_vm._v("Followers")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "float-right" }, [_vm._v("1,322")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("b", [_vm._v("Following")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "float-right" }, [_vm._v("543")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "list-group-item" }, [
+        _c("b", [_vm._v("Friends")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "float-right" }, [_vm._v("13,287")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "btn btn-primary btn-block", attrs: { href: "#" } },
+      [_c("b", [_vm._v("Follow")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card card-primary" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("About Me")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("strong", [
+          _c("i", { staticClass: "fas fa-book mr-1" }),
+          _vm._v(" Education")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted" }, [
+          _vm._v(
+            "\n                  B.S. in Computer Science from the University of Tennessee at Knoxville\n                  "
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("strong", [
+          _c("i", { staticClass: "fas fa-map-marker-alt mr-1" }),
+          _vm._v(" Location")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted" }, [_vm._v("Malibu, California")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("strong", [
+          _c("i", { staticClass: "fas fa-pencil-alt mr-1" }),
+          _vm._v(" Skills")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted" }, [
+          _c("span", { staticClass: "tag tag-danger" }, [_vm._v("UI Design")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "tag tag-success" }, [_vm._v("Coding")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "tag tag-info" }, [_vm._v("Javascript")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "tag tag-warning" }, [_vm._v("PHP")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "tag tag-primary" }, [_vm._v("Node.js")])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("strong", [
+          _c("i", { staticClass: "far fa-file-alt mr-1" }),
+          _vm._v(" Notes")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-muted" }, [
+          _vm._v(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-9" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header p-2" }, [
+          _c("ul", { staticClass: "nav nav-pills" }, [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link active",
+                  attrs: { href: "#activity", "data-toggle": "tab" }
+                },
+                [_vm._v("Activity")]
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: { href: "#timeline", "data-toggle": "tab" }
+                },
+                [_vm._v("Timeline")]
               )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: { href: "#settings", "data-toggle": "tab" }
+                },
+                [_vm._v("Settings")]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "tab-content" }, [
+            _c(
+              "div",
+              { staticClass: "active tab-pane", attrs: { id: "activity" } },
+              [
+                _c("div", { staticClass: "post" }, [
+                  _c("div", { staticClass: "user-block" }, [
+                    _c("img", {
+                      staticClass: "img-circle img-bordered-sm",
+                      attrs: {
+                        src: "/img/user1-128x128.jpg",
+                        alt: "user image"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "username" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Jonathan Burke Jr.")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "float-right btn-tool",
+                          attrs: { href: "#" }
+                        },
+                        [_c("i", { staticClass: "fas fa-times" })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v("Shared publicly - 7:30 PM today")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                          Lorem ipsum represents a long-held tradition for designers,\n                          typographers and the like. Some people hate it and argue for\n                          its demise, but others ignore the hate as they create awesome\n                          tools to help create filler text for everyone from bacon lovers\n                          to Charlie Sheen fans.\n                      "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "link-black text-sm mr-2",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-share mr-1" }),
+                        _vm._v(" Share")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "link-black text-sm",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-thumbs-up mr-1" }),
+                        _vm._v(" Like")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "float-right" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "link-black text-sm",
+                          attrs: { href: "#" }
+                        },
+                        [
+                          _c("i", { staticClass: "far fa-comments mr-1" }),
+                          _vm._v(" Comments (5)\n                          ")
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control form-control-sm",
+                    attrs: { type: "text", placeholder: "Type a comment" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "post clearfix" }, [
+                  _c("div", { staticClass: "user-block" }, [
+                    _c("img", {
+                      staticClass: "img-circle img-bordered-sm",
+                      attrs: {
+                        src: "/img/user7-128x128.jpg",
+                        alt: "User Image"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "username" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Sarah Ross")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "float-right btn-tool",
+                          attrs: { href: "#" }
+                        },
+                        [_c("i", { staticClass: "fas fa-times" })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v("Sent you a message - 3 days ago")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                          Lorem ipsum represents a long-held tradition for designers,\n                          typographers and the like. Some people hate it and argue for\n                          its demise, but others ignore the hate as they create awesome\n                          tools to help create filler text for everyone from bacon lovers\n                          to Charlie Sheen fans.\n                      "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("form", { staticClass: "form-horizontal" }, [
+                    _c(
+                      "div",
+                      { staticClass: "input-group input-group-sm mb-0" },
+                      [
+                        _c("input", {
+                          staticClass: "form-control form-control-sm",
+                          attrs: { placeholder: "Response" }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Send")]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "post" }, [
+                  _c("div", { staticClass: "user-block" }, [
+                    _c("img", {
+                      staticClass: "img-circle img-bordered-sm",
+                      attrs: {
+                        src: "/img/user6-128x128.jpg",
+                        alt: "User Image"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "username" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Adam Jones")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "float-right btn-tool",
+                          attrs: { href: "#" }
+                        },
+                        [_c("i", { staticClass: "fas fa-times" })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v("Posted 5 photos - 5 days ago")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row mb-3" }, [
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "/img/photo1.png", alt: "Photo" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c("img", {
+                            staticClass: "img-fluid mb-3",
+                            attrs: { src: "/img/photo2.png", alt: "Photo" }
+                          }),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "img-fluid",
+                            attrs: { src: "/img/photo3.jpg", alt: "Photo" }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c("img", {
+                            staticClass: "img-fluid mb-3",
+                            attrs: { src: "/img/photo4.jpg", alt: "Photo" }
+                          }),
+                          _vm._v(" "),
+                          _c("img", {
+                            staticClass: "img-fluid",
+                            attrs: { src: "/img/photo1.png", alt: "Photo" }
+                          })
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "link-black text-sm mr-2",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-share mr-1" }),
+                        _vm._v(" Share")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "link-black text-sm",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-thumbs-up mr-1" }),
+                        _vm._v(" Like")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "float-right" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "link-black text-sm",
+                          attrs: { href: "#" }
+                        },
+                        [
+                          _c("i", { staticClass: "far fa-comments mr-1" }),
+                          _vm._v(" Comments (5)\n                          ")
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control form-control-sm",
+                    attrs: { type: "text", placeholder: "Type a comment" }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "tab-pane", attrs: { id: "timeline" } }, [
+              _c("div", { staticClass: "timeline timeline-inverse" }, [
+                _c("div", { staticClass: "time-label" }, [
+                  _c("span", { staticClass: "bg-danger" }, [
+                    _vm._v(
+                      "\n                          10 Feb. 2014\n                          "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("i", { staticClass: "fas fa-envelope bg-primary" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "timeline-item" }, [
+                    _c("span", { staticClass: "time" }, [
+                      _c("i", { staticClass: "far fa-clock" }),
+                      _vm._v(" 12:05")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "timeline-header" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Support Team")
+                      ]),
+                      _vm._v(" sent you an email")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "timeline-body" }, [
+                      _vm._v(
+                        "\n                              Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,\n                              weebly ning heekya handango imeem plugg dopplr jibjab, movity\n                              jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle\n                              quora plaxo ideeli hulu weebly balihoo...\n                          "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "timeline-footer" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary btn-sm",
+                          attrs: { href: "#" }
+                        },
+                        [_vm._v("Read more")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { href: "#" }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("i", { staticClass: "fas fa-user bg-info" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "timeline-item" }, [
+                    _c("span", { staticClass: "time" }, [
+                      _c("i", { staticClass: "far fa-clock" }),
+                      _vm._v(" 5 mins ago")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "timeline-header border-0" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Sarah Young")
+                      ]),
+                      _vm._v(
+                        " accepted your friend request\n                          "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("i", { staticClass: "fas fa-comments bg-warning" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "timeline-item" }, [
+                    _c("span", { staticClass: "time" }, [
+                      _c("i", { staticClass: "far fa-clock" }),
+                      _vm._v(" 27 mins ago")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "timeline-header" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Jay White")]),
+                      _vm._v(" commented on your post")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "timeline-body" }, [
+                      _vm._v(
+                        "\n                              Take me to your leader!\n                              Switzerland is small and neutral!\n                              We are more like Germany, ambitious and misunderstood!\n                          "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "timeline-footer" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-warning btn-flat btn-sm",
+                          attrs: { href: "#" }
+                        },
+                        [_vm._v("View comment")]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "time-label" }, [
+                  _c("span", { staticClass: "bg-success" }, [
+                    _vm._v(
+                      "\n                          3 Jan. 2014\n                          "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("i", { staticClass: "fas fa-camera bg-purple" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "timeline-item" }, [
+                    _c("span", { staticClass: "time" }, [
+                      _c("i", { staticClass: "far fa-clock" }),
+                      _vm._v(" 2 days ago")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "timeline-header" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Mina Lee")]),
+                      _vm._v(" uploaded new photos")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "timeline-body" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "https://placehold.it/150x100",
+                          alt: "..."
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        attrs: {
+                          src: "https://placehold.it/150x100",
+                          alt: "..."
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        attrs: {
+                          src: "https://placehold.it/150x100",
+                          alt: "..."
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        attrs: {
+                          src: "https://placehold.it/150x100",
+                          alt: "..."
+                        }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", [_c("i", { staticClass: "far fa-clock bg-gray" })])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tab-pane", attrs: { id: "settings" } }, [
+              _c("form", { staticClass: "form-horizontal" }, [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputName" }
+                    },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        id: "inputName",
+                        placeholder: "Name"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputEmail" }
+                    },
+                    [_vm._v("Email")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        id: "inputEmail",
+                        placeholder: "Email"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputName2" }
+                    },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputName2",
+                        placeholder: "Name"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputExperience" }
+                    },
+                    [_vm._v("Experience")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("textarea", {
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "inputExperience",
+                        placeholder: "Experience"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputSkills" }
+                    },
+                    [_vm._v("Skills")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputSkills",
+                        placeholder: "Skills"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
+                    _c("div", { staticClass: "checkbox" }, [
+                      _c("label", [
+                        _c("input", { attrs: { type: "checkbox" } }),
+                        _vm._v(" I agree to the "),
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("terms and conditions")
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "offset-sm-2 col-sm-10" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Submit")]
+                    )
+                  ])
+                ])
+              ])
             ])
           ])
         ])

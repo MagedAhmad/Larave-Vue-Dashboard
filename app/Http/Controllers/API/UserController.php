@@ -136,4 +136,9 @@ class UserController extends Controller
                 break;
         }
     }
+
+    public function getAuthUser()
+    {
+        return auth()->user();
+    }
 }

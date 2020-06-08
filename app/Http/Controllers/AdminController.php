@@ -26,7 +26,7 @@ class AdminController extends Controller
         if(auth()->user()->hasRole('user')) {
             return \App::abort(403, 'Unauthorized Area!');
         }
-        return view('home');
+        return view('admin.dashboard');
     }
 
 

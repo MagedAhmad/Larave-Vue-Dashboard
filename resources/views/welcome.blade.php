@@ -69,6 +69,9 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        @if(auth()->user()->hasRole('super-admin') OR auth()->user()->hasRole('writer'))
+                        <a href="{{ url('/admin') }}">Admin</a>
+                        @endif
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Vue <br>Dashboard
                 </div>
 
                 @auth
