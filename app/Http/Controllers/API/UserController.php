@@ -47,16 +47,10 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required'],
         ]);
+        $request['password'] = Hash::make($request['password']);
+        $request['photo'] = $request['photo'] ?? 'avatar.png';
+        $user = User::create($request->all());
         
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'photo' => $request['photo'],
-            'bio' => $request['bio'],
-            'type' => $request['type'],
-            'password' => Hash::make($request['password']),
-        ]);
-
         $this->setType($user, $user->type);
         
         return $user;
@@ -140,5 +134,10 @@ class UserController extends Controller
     public function getAuthUser()
     {
         return auth()->user();
+    }
+
+    public function countUsers()
+    {
+        return count(User::all());
     }
 }

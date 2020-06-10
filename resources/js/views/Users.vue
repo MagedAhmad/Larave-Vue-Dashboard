@@ -40,7 +40,7 @@
             </div>
             <!-- /.box-body -->
             
-            <!-- MOdal  -->
+            <!-- Modal  -->
             <div class="modal" id="createuser" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
