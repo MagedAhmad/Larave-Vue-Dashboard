@@ -24,6 +24,7 @@ npm install
 open `.env` to enter your DB credentails then run 
 ```
 php artisan migrate
+php artisan db:seed
 ```
 
 And you are all set to go 
