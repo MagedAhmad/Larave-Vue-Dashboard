@@ -22,4 +22,8 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function() {
     Route::apiResource('/users', 'API\UserController');
     Route::get('/getAuthUser', 'API\UserController@getAuthUser');
     Route::get('/countUsers', 'API\UserController@countUsers');
+    Route::apiResource('/permissions', 'API\PermissionController');
+    Route::get('/countPermissions', 'API\PermissionController@countPermissions');
+
+    
 });

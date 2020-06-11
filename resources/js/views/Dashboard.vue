@@ -16,16 +16,16 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">410</span>
+                <span class="info-box-text">Permissions</span>
+                <span class="info-box-number">{{ countPermission }}</span>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- /.col -->
           <!-- <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
@@ -61,6 +61,7 @@ export default {
     data() {
         return {
             countUsers: 0,
+            countPermission: 0,
         }
     },
     mounted() {
@@ -71,6 +72,15 @@ export default {
                 Toast.fire({
                         icon: 'error',
                         title: 'Something went wrong'
+                    })
+            })
+        axios.get('/api/admin/countPermissions')
+            .then((response) => {
+                this.countPermission = response.data
+            }).catch((error) => {
+                Toast.fire({
+                        icon: 'error',
+                        title: 'Couldn\'t get permission count'
                     })
             })
     }
