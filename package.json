@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.0.5",
-        "moment": "^2.26.0",
+        "moment": "^2.29.4",
         "sweetalert2": "^9.14.0",
         "vform": "^1.0.1",
         "vue-router": "^3.3.2"
